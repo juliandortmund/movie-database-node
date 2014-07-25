@@ -1,65 +1,22 @@
 module.exports = [
   {
-    "name": "ermahgerd",
+    "name": "fuh-team-1",
     "collaborators": [
-      "cihadkirhan",
-      "karsten-gentges",
-      "Moritz-Mueller",
-      "psurrey"
     ]
   },
   {
-    "name": "nyanCat",
+    "name": "fuh-team-2",
     "collaborators": [
-      "JeanOchmann",
-      "SKrempel",
-      "Synisse",
-      "FlinGit"
     ]
   },
   {
-    "name": "mustache",
+    "name": "fuh-team-3",
     "collaborators": [
-      "Lebbing",
-      "Devmapall",
-      "jbeulen",
-      "efrank1"
     ]
   },
   {
-    "name": "fancyTeam",
+    "name": "fuh-team-4",
     "collaborators": [
-      "danielvdwal",
-      "shantich",
-      "p3na",
-      "kamil02",
-      "Michel2508"
-    ]
-  },
-  {
-    "name": "bacon",
-    "collaborators": [
-      "dwitk",
-      "M4rtinW",
-      "Slawago4",
-      "srenkel"
-    ]
-  },
-  {
-    "name": "ninja",
-    "collaborators": [
-      "Tyerell",
-      "Vitmaster",
-      "rs-jumper"
-    ]
-  },
-  {
-    "name": "teachersInSpace",
-    "collaborators": [
-      "Rvandenham",
-      "homberghp",
-      "odenhovenf",
-      "thijsdorssers"
     ]
   }
 ]

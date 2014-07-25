@@ -2,6 +2,7 @@ var Q = require('q');
 var https = require('https');
 var parseUrl = require('url').parse;
 var childProcess = require('child_process');
+var util = require('util');
 
 module.exports.request = function request(params) {
     var options = parseUrl(params.url);
@@ -9,6 +10,9 @@ module.exports.request = function request(params) {
     if (params.user && params.password) {
       options.auth = params.user + ":" + params.password;
     }
+    options.headers = {
+      'User-Agent': 'movie-database-node-scripts'
+    };
 
     var deferred = Q.defer();
 
@@ -17,7 +21,8 @@ module.exports.request = function request(params) {
         if (statusCode >= 200 && statusCode < 300) {
             deferred.resolve(response);
         } else {
-            deferred.reject(new Error('Status code was: ' + statusCode));
+            deferred.reject(new Error('Status code was: ' + statusCode +
+              '. Config: \n' + JSON.stringify(options, 0, 2)));
         }
     });
 
