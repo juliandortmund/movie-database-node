@@ -1,8 +1,12 @@
-var settings = require('./settings');
-var newRepositories = require('./repos');
-var util = require('./util');
 var Q = require('q');
 var format = require('util').format;
+var fs = require('fs');
+var mkdirp = require('mkdirp');
+var rimraf = require('rimraf');
+
+var newRepositories = require('./repos');
+var settings = require('./settings');
+var util = require('./util');
 
 var baseUrl = 'https://api.github.com';
 var origin = 'https://github.com/codecentric/movie-database-node.git';
@@ -28,7 +32,7 @@ function tap(prefix) {
   return function(val) {
     log('%s:', prefix, val);
     return val;
-  }
+  };
 }
 
 function getAllExistingReposities() {
@@ -118,6 +122,8 @@ function pushTo(repo) {
 
 function doInitialCommits() {
   log('Cloning %s into %s', origin, settings.tmp);
+  rimraf.sync(settings.tmp);
+  mkdirp.sync(settings.tmp);
   return util.exec(format('git clone %s %s', origin, settings.tmp))
   .then(function() {
     log('Finished cloning. Progressing to update of each repository');
@@ -127,7 +133,7 @@ function doInitialCommits() {
       promise = promise.then(function() {
         return pushTo(repo);
       });
-    })
+    });
 
     return promise;
   });

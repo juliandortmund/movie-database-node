@@ -11,7 +11,8 @@ module.exports.request = function request(params) {
       options.auth = params.user + ":" + params.password;
     }
     options.headers = {
-      'User-Agent': 'movie-database-node-scripts'
+      'User-Agent': 'movie-database-node-scripts',
+      'Accept': 'application/vnd.github.v3+json'
     };
 
     var deferred = Q.defer();
